@@ -1,0 +1,47 @@
+[
+  {
+    "name": "Spotlight",
+    "pass": true,
+    "detail": "5 bright; 16 pale"
+  },
+  {
+    "name": "Clear",
+    "pass": true
+  },
+  {
+    "name": "Guest details",
+    "pass": true
+  },
+  {
+    "name": "Escape",
+    "pass": true
+  },
+  {
+    "name": "Move then case 1",
+    "pass": true
+  },
+  {
+    "name": "Sort by arrival",
+    "pass": true
+  },
+  {
+    "name": "Restore picture order",
+    "pass": true
+  },
+  {
+    "name": "Five rapid sort clicks",
+    "pass": true
+  },
+  {
+    "name": "Rapid guest clicks",
+    "pass": true
+  },
+  {
+    "name": "Rapid moves",
+    "pass": true
+  },
+  {
+    "name": "Unique guests",
+    "pass": true
+  }
+]

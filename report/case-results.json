@@ -1,0 +1,216 @@
+[
+  {
+    "case": 1,
+    "title": "Who is in the hall?",
+    "chain": "() => $('#hall .guest')",
+    "names": [
+      "Arman",
+      "Sophia",
+      "Dias",
+      "Bekzat",
+      "Aruzhan",
+      "Saule"
+    ]
+  },
+  {
+    "case": 2,
+    "title": "Who is dressed in yellow or purple?",
+    "chain": "() => $('.guest[data-color=\"yellow\"], .guest[data-color=\"purple\"]')",
+    "names": [
+      "Arman",
+      "Sophia",
+      "Bekzat",
+      "Sergey",
+      "Natasha",
+      "Inkar"
+    ]
+  },
+  {
+    "case": 3,
+    "title": "Which AITU students are upstairs?",
+    "chain": "() => $('.floor[data-floor=\"2\"] .guest.aitu')",
+    "names": [
+      "Aigerim",
+      "Ivan",
+      "Sophia",
+      "Dias",
+      "Aruzhan"
+    ]
+  },
+  {
+    "case": 4,
+    "title": "Who has glasses or a bag?",
+    "chain": "() => $('.guest.has-glasses, .guest.has-bag')",
+    "names": [
+      "Madina",
+      "Arman",
+      "Bekzat",
+      "Saule",
+      "Emma",
+      "Timur",
+      "Yerlan",
+      "Daniel",
+      "Zarina",
+      "Inkar"
+    ]
+  },
+  {
+    "case": 5,
+    "title": "Who came with nothing at all?",
+    "chain": "() => $('.guest:not([class*=\"has-\"])')",
+    "names": [
+      "Dias",
+      "Sergey",
+      "Natasha"
+    ]
+  },
+  {
+    "case": 6,
+    "title": "Who has a phone but no bag?",
+    "chain": "() => $('.guest.has-phone:not(.has-bag)')",
+    "names": [
+      "Aliya",
+      "Sophia",
+      "Aruzhan",
+      "Nurlan",
+      "Yerlan",
+      "Askar"
+    ]
+  },
+  {
+    "case": 7,
+    "title": "Who arrived between 20:30 and 21:00?",
+    "chain": "() => $('.guest').filter(function () { return +$(this).attr('data-min') >= 1230 && +$(this).attr('data-min') <= 1260; })",
+    "names": [
+      "Aigerim",
+      "Arman",
+      "Bekzat",
+      "Sergey",
+      "Natasha",
+      "Askar"
+    ]
+  },
+  {
+    "case": 8,
+    "title": "Who arrived after 21:00 and is not AITU?",
+    "chain": "() => $('.guest:not(.aitu)').filter(function () { return +$(this).attr('data-min') > 1260; })",
+    "names": [
+      "Aliya",
+      "Madina",
+      "Saule",
+      "Zarina"
+    ]
+  },
+  {
+    "case": 9,
+    "title": "Who stands right next to Askar?",
+    "chain": "() => $('.guest[data-name=\"Askar\"]').prev('.guest').add('.guest[data-name=\"Askar\"] + .guest')",
+    "names": [
+      "Natasha",
+      "Inkar"
+    ]
+  },
+  {
+    "case": 10,
+    "title": "Who stands last in each room?",
+    "chain": "() => $('.guests > .guest:last-child')",
+    "names": [
+      "Ivan",
+      "Saule",
+      "Kamila",
+      "Inkar"
+    ]
+  },
+  {
+    "case": 11,
+    "title": "Who stands third in each room?",
+    "chain": "() => $('.guests > .guest:nth-child(3)')",
+    "names": [
+      "Madina",
+      "Dias",
+      "Timur",
+      "Natasha"
+    ]
+  },
+  {
+    "case": 12,
+    "title": "Who stands after Timur in his room?",
+    "chain": "() => $('.guest[data-name=\"Timur\"]').nextAll('.guest')",
+    "names": [
+      "Sergey",
+      "Yerlan",
+      "Kamila"
+    ]
+  },
+  {
+    "case": 13,
+    "title": "Who stands right before someone in black?",
+    "chain": "() => $('.guest[data-color=\"black\"]').prev('.guest')",
+    "names": [
+      "Aigerim",
+      "Madina",
+      "Nurlan",
+      "Natasha"
+    ]
+  },
+  {
+    "case": 14,
+    "title": "In which room is Aruzhan?",
+    "chain": "() => $('.guest[data-name=\"Aruzhan\"]').closest('.room')",
+    "names": [
+      "Hall"
+    ]
+  },
+  {
+    "case": 15,
+    "title": "Which rooms have fewer than 6 guests?",
+    "chain": "() => $('.room').filter(function () { return $(this).find('.guest').length < 6; })",
+    "names": [
+      "Balcony",
+      "Living room"
+    ]
+  },
+  {
+    "case": 16,
+    "title": "Which rooms have cups but no glasses?",
+    "chain": "() => $('.room:has(.has-cup):not(:has(.has-glasses))')",
+    "names": [
+      "Balcony"
+    ]
+  },
+  {
+    "case": 17,
+    "title": "Who came first to each room?",
+    "chain": "() => $('.guest').filter(function () { var time = +$(this).attr('data-min'); return $(this).siblings('.guest').filter(function () { return +$(this).attr('data-min') < time; }).length === 0; })",
+    "names": [
+      "Ivan",
+      "Dias",
+      "Nurlan",
+      "Daniel"
+    ]
+  },
+  {
+    "case": 18,
+    "title": "Miras joins between Askar and Inkar.",
+    "chain": "() => makeCard({name:'Miras',color:'blue',time:'21:20',aitu:true,items:['phone']}).hide().insertAfter('.guest[data-name=\"Askar\"]').fadeIn(650)",
+    "names": [
+      "Miras"
+    ]
+  },
+  {
+    "case": 19,
+    "title": "Natasha says goodbye and goes home.",
+    "chain": "() => $('.guest[data-name=\"Natasha\"]').fadeOut(650, function () { $(this).remove(); })",
+    "names": [
+      "Natasha"
+    ]
+  },
+  {
+    "case": 20,
+    "title": "Who took the cake?",
+    "chain": "() => $('.floor[data-floor=\"1\"] .guest.has-crumbs:not(.has-cup)').filter(function () { return +$(this).attr('data-min') > 1260 && +$(this).attr('data-min') < 1290; }).filter(function () { return $(this).prev('.guest').add($(this).next('.guest')).filter('.aitu').length > 0; })",
+    "names": [
+      "Zarina"
+    ]
+  }
+]
